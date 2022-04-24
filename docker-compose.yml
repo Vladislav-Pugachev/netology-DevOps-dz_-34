@@ -1,0 +1,18 @@
+version: "3.9"
+services:
+  ubuntu:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ubuntu
+    command: apt update
+    command: apt-get install python3
+    command: tail -f /var/log/faillog
+  centos:
+    image: centos:latest
+    container_name: centos7
+    command: tail -f /var/log/lastlog
+  fedora:
+    image: fedora:latest
+    container_name: fedora
+    command: tail -f /var/log/anaconda/syslog
